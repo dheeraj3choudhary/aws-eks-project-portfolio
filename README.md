@@ -1,52 +1,33 @@
+<div align="center">
+  
 # AWS EKS Portfolio Project
+A production-grade static portfolio website deployed on **AWS EKS** using Docker, Amazon ECR, Kubernetes, and AWS ALB Ingress Controller. This project demonstrates end-to-end deployment of a static portfolio website on AWS EKS. It covers containerization with Docker, image registry management with Amazon ECR, Kubernetes orchestration, and public exposure via AWS Application Load Balancer (ALB).
 
-> A production-grade static portfolio website deployed on **AWS EKS** using Docker, Amazon ECR, Kubernetes, and AWS ALB Ingress Controller.
+<img width="1280" height="720" alt="EKS (1)" src="https://github.com/user-attachments/assets/5d7e89b2-7f7e-44af-abf6-609b35ea7d45" />
+
 
 ![AWS](https://img.shields.io/badge/AWS-EKS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Nginx-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-1.34-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
 ![ECR](https://img.shields.io/badge/Amazon-ECR-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
 
----
+<a href="https://www.buymeacoffee.com/Dheeraj3" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" height="50">
+</a>
 
-## 📌 Project Overview
+## [Subscribe](https://www.youtube.com/@dheeraj-choudhary?sub_confirmation=1) to learn more About Artificial-Intellegence, Machine-Learning, Cloud & DevOps.
 
-This project demonstrates end-to-end deployment of a static portfolio website on AWS EKS. It covers containerization with Docker, image registry management with Amazon ECR, Kubernetes orchestration, and public exposure via AWS Application Load Balancer (ALB).
+<p align="center">
+<a href="https://www.linkedin.com/in/dheeraj-choudhary/" target="_blank">
+  <img height="100" alt="Dheeraj Choudhary | LinkedIN"  src="https://user-images.githubusercontent.com/60597290/152035581-a7c6c0c3-65c3-4160-89c0-e90ddc1e8d4e.png"/>
+</a> 
 
-**Live Stack:**
-```
-HTML/CSS/JS → Nginx → Docker → Amazon ECR → AWS EKS → AWS ALB → Internet
-```
+<a href="https://www.youtube.com/@dheeraj-choudhary?sub_confirmation=1">
+    <img height="100" src="https://user-images.githubusercontent.com/60597290/152035929-b7f75d38-e1c2-4325-a97e-7b934b8534e2.png" />
+</a>    
+</p>
 
----
-
-## 🏗️ Architecture
-
-```
-                        ┌─────────────────────────────────────────┐
-                        │              AWS Cloud (us-west-2)       │
-                        │                                         │
-  User Browser          │   ┌──────────┐      ┌───────────────┐  │
-      │                 │   │   ALB    │      │  EKS Cluster  │  │
-      │  HTTP:80        │   │(internet │─────▶│               │  │
-      └────────────────▶│   │ facing)  │      │ ┌───────────┐ │  │
-                        │   └──────────┘      │ │   Pod 1   │ │  │
-                        │         ▲           │ │ (Nginx)   │ │  │
-                        │         │           │ └───────────┘ │  │
-                        │   ┌─────────────┐   │ ┌───────────┐ │  │
-                        │   │ ALB Ingress │   │ │   Pod 2   │ │  │
-                        │   │ Controller  │   │ │ (Nginx)   │ │  │
-                        │   └─────────────┘   │ └───────────┘ │  │
-                        │                     └───────────────┘  │
-                        │                                         │
-                        │   ┌──────────────────────────────────┐  │
-                        │   │         Amazon ECR               │  │
-                        │   │   portfolio-eks:latest           │  │
-                        │   └──────────────────────────────────┘  │
-                        └─────────────────────────────────────────┘
-```
-
----
+</div>
 
 ## 📁 Project Structure
 
@@ -273,29 +254,6 @@ Open the `ADDRESS` URL in your browser — your portfolio is live! 🎉
 
 ---
 
-## 🔧 Nginx Configuration Highlights
-
-- Gzip compression for CSS, JS, HTML, JSON, SVG
-- Security headers: `X-Frame-Options`, `X-XSS-Protection`, `X-Content-Type-Options`
-- 30-day cache for static assets
-- ALB health check endpoint at `/health`
-- Hidden file blocking (`/.*`)
-- `server_tokens off` — hides Nginx version
-
----
-
-## 💰 Cost Estimate
-
-| Resource | Approx Cost/Day |
-|----------|----------------|
-| EKS Cluster | ~$0.10/hr (~$2.40/day) |
-| 2x t3.medium nodes | ~$0.0416/hr each (~$2.00/day) |
-| ALB | ~$0.008/hr (~$0.20/day) |
-| ECR Storage | Minimal |
-| **Total** | **~$4.60/day** |
-
----
-
 ## 🧹 Cleanup — Delete All Resources
 
 ```bash
@@ -336,9 +294,9 @@ aws iam delete-policy \
 **Dheeraj Choudhary**
 AWS Hero | DevOps Expert | Community Leader
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat&logo=linkedin)](https://linkedin.com/in/dheerajchoudhary)
-[![YouTube](https://img.shields.io/badge/YouTube-Subscribe-FF0000?style=flat&logo=youtube)](https://youtube.com)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat&logo=github)](https://github.com/dheerajchoudhary)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat&logo=linkedin)](https://www.linkedin.com/in/dheeraj-choudhary)
+[![YouTube](https://img.shields.io/badge/YouTube-Subscribe-FF0000?style=flat&logo=youtube)](https://www.youtube.com/@dheeraj-choudhary)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat&logo=github)](https://github.com/dheeraj3choudhary)
 
 ---
 
