@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dheeraj Choudhary | AWS Hero & DevOps Expert</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Noise overlay -->
+  <div class="noise"></div>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">DC<span class="dot">.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#roles">Roles</a></li>
+      <li><a href="#content">Content</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn-nav">Let's Connect</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#expertise" class="mobile-link">Expertise</a></li>
+      <li><a href="#roles" class="mobile-link">Roles</a></li>
+      <li><a href="#content" class="mobile-link">Content</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-bg-text">AWS</div>
+    <div class="hero-container">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Available for Speaking Engagements
+      </div>
+      <h1 class="hero-title">
+        <span class="line" data-delay="0">Dheeraj</span>
+        <span class="line italic" data-delay="100">Choudhary</span>
+      </h1>
+      <div class="hero-tags">
+        <span class="tag">AWS Hero</span>
+        <span class="tag">DevOps Engineer</span>
+        <span class="tag">International Speaker</span>
+        <span class="tag">Community Leader</span>
+      </div>
+      <p class="hero-desc">
+        Experienced IT professional focused in AWS Cloud & DevOps — automating end-to-end build-deploy-release lifecycles and empowering global tech communities.
+      </p>
+      <div class="hero-actions">
+        <a href="#expertise" class="btn-primary">View Expertise</a>
+        <a href="#content" class="btn-ghost">Watch Content <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num" data-target="10">0</span><span>+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="50">0</span><span>+</span>
+          <span class="stat-label">Talks Delivered</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="5">0</span><span>+</span>
+          <span class="stat-label">Communities Led</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orbit-ring ring-1">
+        <div class="orbit-icon" style="--angle:0deg"><i class="fa-brands fa-aws"></i></div>
+        <div class="orbit-icon" style="--angle:90deg"><i class="fa-solid fa-cloud"></i></div>
+        <div class="orbit-icon" style="--angle:180deg"><i class="fa-brands fa-docker"></i></div>
+        <div class="orbit-icon" style="--angle:270deg"><i class="fa-solid fa-infinity"></i></div>
+      </div>
+      <div class="orbit-ring ring-2">
+        <div class="orbit-icon" style="--angle:45deg"><i class="fa-brands fa-github"></i></div>
+        <div class="orbit-icon" style="--angle:135deg"><i class="fa-solid fa-cube"></i></div>
+        <div class="orbit-icon" style="--angle:225deg"><i class="fa-solid fa-terminal"></i></div>
+        <div class="orbit-icon" style="--angle:315deg"><i class="fa-solid fa-network-wired"></i></div>
+      </div>
+      <div class="center-badge">
+        <div class="center-inner">
+          <i class="fa-brands fa-aws"></i>
+          <span>Hero</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-label">// About Me</div>
+      <div class="about-grid">
+        <div class="about-left">
+          <h2 class="section-title">Building the Future with <span class="accent">Cloud & DevOps</span></h2>
+          <p class="about-text">
+            I am an experienced IT professional focused on AWS Cloud and DevOps, specializing in automating end-to-end lifecycle management for build-deploy-release pipelines. My work spans DevOps, Build & Release Engineering, and Software Configuration Management.
+          </p>
+          <p class="about-text">
+            As an <strong>AWS Hero</strong>, <strong>IBM Ambassador</strong>, and <strong>HashiCorp Pune User Group Leader</strong>, I actively contribute to the global tech community through meetups, conferences, and community days. I lead the <strong>AWS User Group Pune</strong> — one of India's most active cloud communities.
+          </p>
+          <div class="about-links">
+            <a href="https://youtube.com" target="_blank" class="about-link"><i class="fa-brands fa-youtube"></i> YouTube Channel</a>
+            <a href="https://linkedin.com" target="_blank" class="about-link"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com" target="_blank" class="about-link"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="about-right">
+          <div class="about-card">
+            <div class="about-card-icon"><i class="fa-brands fa-aws"></i></div>
+            <h3>AWS Hero</h3>
+            <p>Recognized by Amazon Web Services for technical expertise and community contributions.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-card-icon"><i class="fa-solid fa-users"></i></div>
+            <h3>Community Leader</h3>
+            <p>Leading AWS User Group Pune & HashiCorp Pune User Group with regular physical meetups.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-card-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+            <h3>International Speaker</h3>
+            <p>Active speaker at global technical conferences, AWS Community Days & industry events.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <section class="expertise section" id="expertise">
+    <div class="container">
+      <div class="section-label">// Expertise</div>
+      <h2 class="section-title">Technical <span class="accent">Stack</span></h2>
+      <div class="expertise-grid">
+
+        <div class="expertise-card" data-index="0">
+          <div class="expertise-number">01</div>
+          <div class="expertise-icon"><i class="fa-brands fa-aws"></i></div>
+          <h3>AWS Cloud</h3>
+          <p>Deep expertise across EC2, EKS, Lambda, RDS, VPC, IAM, CloudFormation, CDK, and 50+ AWS services.</p>
+          <div class="expertise-tags">
+            <span>EKS</span><span>Lambda</span><span>CDK</span><span>IAM</span>
+          </div>
+        </div>
+
+        <div class="expertise-card" data-index="1">
+          <div class="expertise-number">02</div>
+          <div class="expertise-icon"><i class="fa-solid fa-infinity"></i></div>
+          <h3>DevOps & CI/CD</h3>
+          <p>End-to-end pipeline automation, build/release engineering, and software configuration management at scale.</p>
+          <div class="expertise-tags">
+            <span>Jenkins</span><span>GitHub Actions</span><span>ArgoCD</span>
+          </div>
+        </div>
+
+        <div class="expertise-card" data-index="2">
+          <div class="expertise-number">03</div>
+          <div class="expertise-icon"><i class="fa-brands fa-docker"></i></div>
+          <h3>Containers & K8s</h3>
+          <p>Production-grade containerization with Docker, Kubernetes orchestration, Helm, and EKS cluster management.</p>
+          <div class="expertise-tags">
+            <span>Docker</span><span>Kubernetes</span><span>EKS</span><span>ECR</span>
+          </div>
+        </div>
+
+        <div class="expertise-card" data-index="3">
+          <div class="expertise-number">04</div>
+          <div class="expertise-icon"><i class="fa-solid fa-code-branch"></i></div>
+          <h3>Infrastructure as Code</h3>
+          <p>Automating infrastructure with Terraform, AWS CDK, CloudFormation, and Ansible at enterprise scale.</p>
+          <div class="expertise-tags">
+            <span>Terraform</span><span>Ansible</span><span>CloudFormation</span>
+          </div>
+        </div>
+
+        <div class="expertise-card" data-index="4">
+          <div class="expertise-number">05</div>
+          <div class="expertise-icon"><i class="fa-solid fa-robot"></i></div>
+          <h3>GenAI & ML on AWS</h3>
+          <p>Building and deploying GenAI solutions using Amazon Bedrock, SageMaker, and open-source ML frameworks.</p>
+          <div class="expertise-tags">
+            <span>Bedrock</span><span>SageMaker</span><span>LLMs</span>
+          </div>
+        </div>
+
+        <div class="expertise-card" data-index="5">
+          <div class="expertise-number">06</div>
+          <div class="expertise-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>DevSecOps</h3>
+          <p>Integrating security into CI/CD pipelines with automated scanning, policy-as-code, and compliance automation.</p>
+          <div class="expertise-tags">
+            <span>Trivy</span><span>SonarQube</span><span>OPA</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Roles Section -->
+  <section class="roles section" id="roles">
+    <div class="container">
+      <div class="section-label">// Community & Recognition</div>
+      <h2 class="section-title">Roles & <span class="accent">Recognition</span></h2>
+      <div class="roles-list">
+        <div class="role-item reveal">
+          <div class="role-left">
+            <div class="role-icon"><i class="fa-brands fa-aws"></i></div>
+            <div>
+              <h3>AWS Hero</h3>
+              <span class="role-org">Amazon Web Services</span>
+            </div>
+          </div>
+          <p class="role-desc">Recognized globally by AWS for outstanding technical expertise, content creation, and community building in the cloud ecosystem.</p>
+        </div>
+        <div class="role-item reveal">
+          <div class="role-left">
+            <div class="role-icon"><i class="fa-solid fa-users-gear"></i></div>
+            <div>
+              <h3>AWS User Group Pune — Leader</h3>
+              <span class="role-org">AWS Community</span>
+            </div>
+          </div>
+          <p class="role-desc">Co-organizing one of India's most active AWS User Groups with regular physical meetups, workshops, and AWS Community Days.</p>
+        </div>
+        <div class="role-item reveal">
+          <div class="role-left">
+            <div class="role-icon" style="background: linear-gradient(135deg, #1F70C1, #0530AD);"><i class="fa-solid fa-award"></i></div>
+            <div>
+              <h3>IBM Ambassador</h3>
+              <span class="role-org">IBM</span>
+            </div>
+          </div>
+          <p class="role-desc">Recognized IBM Ambassador advocating for IBM technologies, open-source innovation, and enterprise cloud adoption.</p>
+        </div>
+        <div class="role-item reveal">
+          <div class="role-left">
+            <div class="role-icon" style="background: linear-gradient(135deg, #7B42BC, #4040B2);"><i class="fa-solid fa-layer-group"></i></div>
+            <div>
+              <h3>HashiCorp Pune User Group — Leader</h3>
+              <span class="role-org">HashiCorp</span>
+            </div>
+          </div>
+          <p class="role-desc">Leading the HashiCorp Pune community, focusing on Terraform, Vault, and open-source infrastructure tooling education.</p>
+        </div>
+        <div class="role-item reveal">
+          <div class="role-left">
+            <div class="role-icon" style="background: linear-gradient(135deg, #e84393, #c0392b);"><i class="fa-solid fa-microphone"></i></div>
+            <div>
+              <h3>International Conference Speaker</h3>
+              <span class="role-org">Global Tech Conferences</span>
+            </div>
+          </div>
+          <p class="role-desc">Active international speaker delivering sessions on AWS, DevOps, GenAI, and cloud-native technologies at conferences worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section section" id="content">
+    <div class="container">
+      <div class="section-label">// Content & Knowledge Sharing</div>
+      <h2 class="section-title">YouTube & <span class="accent">Blogging</span></h2>
+      <p class="content-intro">I share deep-dive technical content on AWS, DevOps, GenAI, Machine Learning, and open-source tooling to help the global tech community grow.</p>
+      <div class="content-grid">
+        <div class="content-card youtube">
+          <div class="content-card-icon"><i class="fa-brands fa-youtube"></i></div>
+          <h3>YouTube Channel</h3>
+          <p>In-depth tutorials, walkthroughs, and live sessions covering AWS services, DevOps pipelines, GenAI use-cases, and AWS community activities.</p>
+          <ul class="content-topics">
+            <li><i class="fa-solid fa-check"></i> AWS Architecture & Services</li>
+            <li><i class="fa-solid fa-check"></i> DevOps & CI/CD Pipelines</li>
+            <li><i class="fa-solid fa-check"></i> GenAI & Machine Learning</li>
+            <li><i class="fa-solid fa-check"></i> Open Source Tools</li>
+            <li><i class="fa-solid fa-check"></i> AWS Community Days</li>
+          </ul>
+          <a href="https://www.youtube.com/@dheeraj-choudhary" target="_blank" class="btn-content">Visit Channel <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="content-card blog">
+          <div class="content-card-icon"><i class="fa-solid fa-pen-nib"></i></div>
+          <h3>Technical Blogs</h3>
+          <p>Written deep-dives, how-to guides, and architecture breakdowns covering the latest in cloud, DevOps, and AI/ML.</p>
+          <ul class="content-topics">
+            <li><i class="fa-solid fa-check"></i> AWS Best Practices</li>
+            <li><i class="fa-solid fa-check"></i> Infrastructure as Code</li>
+            <li><i class="fa-solid fa-check"></i> Kubernetes & Containers</li>
+            <li><i class="fa-solid fa-check"></i> GenAI Implementations</li>
+            <li><i class="fa-solid fa-check"></i> Community Highlights</li>
+          </ul>
+          <a href="https://techinsightneuron.com/" target="_blank" class="btn-content">Read Blogs <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-label">// Get In Touch</div>
+      <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+      <p class="contact-intro">Open for speaking engagements, collaborations, community partnerships, and consulting opportunities.</p>
+      <div class="contact-grid">
+        <a href="https://www.linkedin.com/in/dheeraj-choudhary" target="_blank" class="contact-card">
+          <i class="fa-brands fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/dheeraj3choudhary" target="_blank" class="contact-card">
+          <i class="fa-brands fa-github"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.youtube.com/@dheeraj-choudhary" target="_blank" class="contact-card">
+          <i class="fa-brands fa-youtube"></i>
+          <span>YouTube</span>
+        </a>
+        <a href="https://x.com/DheerajC30" target="_blank" class="contact-card">
+          <i class="fa-brands fa-x-twitter"></i>
+          <span>Twitter / X</span>
+        </a>
+        <a href="mailto:dheeraj@example.com" class="contact-card">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Email Me</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">DC<span class="dot">.</span></div>
+        <p class="footer-text">Dheeraj Choudhary · AWS Hero · DevOps Expert · Community Leader</p>
+        <p class="footer-copy">© 2024 · Deployed on AWS EKS</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

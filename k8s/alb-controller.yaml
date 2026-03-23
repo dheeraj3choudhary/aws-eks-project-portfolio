@@ -1,0 +1,287 @@
+# =========================================
+#  AWS Load Balancer Controller v2.7.2
+#  Source: kubernetes-sigs/aws-load-balancer-controller
+#  Cluster: portfolio-eks-cluster
+#  Fix: Full RBAC permissions including
+#       configmaps, leases, webhook-cert-dir
+# =========================================
+
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.14.0
+  name: ingressclassparams.elbv2.k8s.aws
+spec:
+  group: elbv2.k8s.aws
+  names:
+    kind: IngressClassParams
+    listKind: IngressClassParamsList
+    plural: ingressclassparams
+    singular: ingressclassparams
+  scope: Cluster
+  versions:
+    - name: v1beta1
+      schema:
+        openAPIV3Schema:
+          description: IngressClassParams is the Schema for the ingressclassparams API
+          properties:
+            apiVersion:
+              type: string
+            kind:
+              type: string
+            metadata:
+              type: object
+            spec:
+              description: IngressClassParamsSpec defines the desired state of IngressClassParams
+              properties:
+                group:
+                  properties:
+                    name:
+                      type: string
+                  required:
+                    - name
+                  type: object
+                ipAddressType:
+                  enum:
+                    - ipv4
+                    - dualstack
+                  type: string
+                scheme:
+                  enum:
+                    - internal
+                    - internet-facing
+                  type: string
+              type: object
+            status:
+              type: object
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.14.0
+  name: targetgroupbindings.elbv2.k8s.aws
+spec:
+  group: elbv2.k8s.aws
+  names:
+    kind: TargetGroupBinding
+    listKind: TargetGroupBindingList
+    plural: targetgroupbindings
+    singular: targetgroupbinding
+  scope: Namespaced
+  versions:
+    - name: v1beta1
+      schema:
+        openAPIV3Schema:
+          description: TargetGroupBinding is the Schema for the TargetGroupBindings API
+          properties:
+            apiVersion:
+              type: string
+            kind:
+              type: string
+            metadata:
+              type: object
+            spec:
+              properties:
+                serviceRef:
+                  properties:
+                    name:
+                      type: string
+                    port:
+                      anyOf:
+                        - type: integer
+                        - type: string
+                      x-kubernetes-int-or-string: true
+                  required:
+                    - name
+                    - port
+                  type: object
+                targetGroupARN:
+                  type: string
+                targetType:
+                  enum:
+                    - instance
+                    - ip
+                  type: string
+              required:
+                - serviceRef
+                - targetGroupARN
+              type: object
+            status:
+              properties:
+                observedGeneration:
+                  format: int64
+                  type: integer
+              type: object
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/name: aws-load-balancer-controller
+  name: aws-load-balancer-controller
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/name: aws-load-balancer-controller
+  name: aws-load-balancer-controller-leader-election-role
+  namespace: kube-system
+rules:
+  - apiGroups: [""]
+    resources: [configmaps]
+    verbs: [create, get, update, patch]
+  - apiGroups: [coordination.k8s.io]
+    resources: [leases]
+    verbs: [create, get, update, patch]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/name: aws-load-balancer-controller
+  name: aws-load-balancer-controller-leader-election-rolebinding
+  namespace: kube-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: aws-load-balancer-controller-leader-election-role
+subjects:
+  - kind: ServiceAccount
+    name: aws-load-balancer-controller
+    namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/name: aws-load-balancer-controller
+  name: aws-load-balancer-controller-role
+rules:
+  - apiGroups: [""]
+    resources: [endpoints, namespaces, nodes, pods, secrets, services]
+    verbs: [get, list, watch]
+  - apiGroups: [""]
+    resources: [events]
+    verbs: [create, patch]
+  - apiGroups: [""]
+    resources: [pods/status, services/status]
+    verbs: [patch, update]
+  - apiGroups: [""]
+    resources: [configmaps]
+    verbs: [create, get, update, patch]
+  - apiGroups: [coordination.k8s.io]
+    resources: [leases]
+    verbs: [create, get, update, patch]
+  - apiGroups: [elbv2.k8s.aws]
+    resources: [ingressclassparams, targetgroupbindings]
+    verbs: [create, delete, get, list, patch, update, watch]
+  - apiGroups: [elbv2.k8s.aws]
+    resources: [targetgroupbindings/status]
+    verbs: [patch, update]
+  - apiGroups: [extensions, networking.k8s.io]
+    resources: [ingresses, ingressclasses]
+    verbs: [get, list, patch, update, watch]
+  - apiGroups: [extensions, networking.k8s.io]
+    resources: [ingresses/status]
+    verbs: [patch, update]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/name: aws-load-balancer-controller
+  name: aws-load-balancer-controller-rolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: aws-load-balancer-controller-role
+subjects:
+  - kind: ServiceAccount
+    name: aws-load-balancer-controller
+    namespace: kube-system
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/name: aws-load-balancer-controller
+  name: aws-load-balancer-controller
+  namespace: kube-system
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/name: aws-load-balancer-controller
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: controller
+        app.kubernetes.io/name: aws-load-balancer-controller
+    spec:
+      containers:
+        - name: controller
+          args:
+            - --cluster-name=portfolio-eks-cluster
+            - --ingress-class=alb
+            - --webhook-cert-dir=/tmp/k8s-webhook-server/serving-certs
+          image: public.ecr.aws/eks/aws-load-balancer-controller:v2.7.2
+          livenessProbe:
+            failureThreshold: 2
+            httpGet:
+              path: /healthz
+              port: 61779
+              scheme: HTTP
+            initialDelaySeconds: 30
+            timeoutSeconds: 10
+          readinessProbe:
+            failureThreshold: 2
+            httpGet:
+              path: /readyz
+              port: 61779
+              scheme: HTTP
+            initialDelaySeconds: 10
+            timeoutSeconds: 10
+          resources:
+            limits:
+              cpu: 200m
+              memory: 500Mi
+            requests:
+              cpu: 100m
+              memory: 200Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+          volumeMounts:
+            - name: webhook-certs
+              mountPath: /tmp/k8s-webhook-server/serving-certs
+      volumes:
+        - name: webhook-certs
+          secret:
+            secretName: aws-load-balancer-tls
+      priorityClassName: system-cluster-critical
+      securityContext:
+        fsGroup: 65534
+      serviceAccountName: aws-load-balancer-controller
+      terminationGracePeriodSeconds: 10

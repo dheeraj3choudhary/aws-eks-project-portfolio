@@ -1,0 +1,53 @@
+# =========================================
+#  .gitignore — aws-eks-project-portfolio
+# =========================================
+
+# AWS Credentials — NEVER commit these
+.aws/
+credentials
+*.pem
+*.key
+*.crt
+tls.key
+tls.crt
+
+# Environment variables
+.env
+.env.*
+
+# Docker
+.dockerignore
+
+# Terraform (if added later)
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Node (if added later)
+node_modules/
+npm-debug.log
+
+# Python (if added later)
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
